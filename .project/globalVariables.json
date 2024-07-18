@@ -4,7 +4,7 @@
     "Name": "OpenAI_API_Key",
     "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
     "UnresolvedTypeFullyQualifiedName": null,
-    "Expression": "\"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\"",
+    "Expression": "\"YOUR_API_KEY\"",
     "IsLiteral": false
   },
   {
@@ -12,7 +12,7 @@
     "Name": "Groq_API_KEY",
     "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
     "UnresolvedTypeFullyQualifiedName": null,
-    "Expression": "\"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\"",
+    "Expression": "\"YOUR_API_KEY\"",
     "IsLiteral": false
   },
   {
@@ -20,7 +20,7 @@
     "Name": "Gemini_API_Key",
     "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
     "UnresolvedTypeFullyQualifiedName": null,
-    "Expression": "\"AIzaSyA_45te7kuNjRPZH71ec8MBC499KCVdgqo\"",
+    "Expression": "\"YOUR_API_KEY\"",
     "IsLiteral": false
   },
   {
@@ -28,7 +28,7 @@
     "Name": "Anthropic_API_Key",
     "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
     "UnresolvedTypeFullyQualifiedName": null,
-    "Expression": "\"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\"",
+    "Expression": "\"YOUR_API_KEY\"",
     "IsLiteral": false
   },
   {
