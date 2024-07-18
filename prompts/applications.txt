@@ -1,0 +1,29 @@
+﻿Name: RPA Credit Bank 
+Credentials name: Credit_Bank_Credencials
+URL: https://rpacreditbank.web.app
+Description: This application allows to manage of various cases related to RPA Bank cases. It can provide information about credit details, credit requests, approved requests, and applications that provide information about RPA Credit bank customers also you can check reviews of various credit products provided by customers. Using this application bank employees can resolve tickets created by customers of the bank.
+
+Name: UiBank Bank
+URL: https://uibank.uipath.com
+Description: This web application allows you to submit a loan request. The confirmation of getting the loan is a loan ID provided by the application. To get the loan a requester needs to be above 18 years old and have income greater than the requested loan value.
+
+Name: RPA Challenge.com
+URL: https://www.rpachallenge.com/
+Description of the applications: Challenging Web form. 
+
+Name: Invoice storage
+URL: https://rpachallengeocr.azurewebsites.net/
+Description: An invoice storage from were invoices can be downloaded.
+
+Name: Submit Case - New System Version
+URL: https://futureofworkblog.web.app/ticketingSystem/SubmitCase_NewVersion.html
+This is a new version of an application that allows to submit the RPA Credit Bank related ticket.
+
+Name: Submit Case - Old System Version
+URL: https://futureofworkblog.web.app/ticketingSystem/SubmitCase_OldVersion.html
+This is an old version of an application that allows to submit the RPA Credit Bank related ticket.
+
+Name: ACME System 1
+Credentials name: ACMESystem1_Credentials
+URL: https://acme-test.uipath.com/
+Description: This application is ERP system for ACME Corporation. It allows to check exisitng work items in the queue for the customer service. View information about employees.

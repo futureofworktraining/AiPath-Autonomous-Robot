@@ -1,0 +1,42 @@
+[
+  {
+    "Constant": false,
+    "Name": "OpenAI_API_Key",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"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\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": false,
+    "Name": "Groq_API_KEY",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"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\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": false,
+    "Name": "Gemini_API_Key",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"AIzaSyA_45te7kuNjRPZH71ec8MBC499KCVdgqo\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": false,
+    "Name": "Anthropic_API_Key",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"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\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": false,
+    "Name": "Perplexity_API_Key",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"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\"",
+    "IsLiteral": false
+  }
+]

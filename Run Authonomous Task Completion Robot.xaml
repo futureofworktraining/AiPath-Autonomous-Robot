@@ -1,0 +1,1454 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Run_Authonomous_Robot" this:Run_Authonomous_Robot.In_bool_TakeScreenshot="False" this:Run_Authonomous_Robot.In_bool_TakeScreenshotWithLabels="False" this:Run_Authonomous_Robot.In_Str_SimplifyScriptPath="scripts/script_simplifyHTML_basic.js" this:Run_Authonomous_Robot.In_Str_SystemMessage="You are a user operating a browser. You execute only one step at a time, which is defined as a ONE JSON object. Provide output without remarks in the requested JSON format. Returning only one JSON object per response. Do not include markdowns like ''' or similar" this:Run_Authonomous_Robot.In_Db_Temperature="0" this:Run_Authonomous_Robot.In_Bool_UseLocalPromptFiles="True" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:ac="clr-namespace:AiPath.Claude;assembly=AiPath" xmlns:ag="clr-namespace:AiPath.Gemini;assembly=AiPath" xmlns:ao="clr-namespace:AiPath.OpenAi;assembly=AiPath" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_bool_TakeScreenshot" Type="InArgument(x:Boolean)" />
+    <x:Property Name="In_bool_TakeScreenshotWithLabels" Type="InArgument(x:Boolean)" />
+    <x:Property Name="In_Str_SimplifyScriptPath" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_Goal" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_SystemMessage" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_RemoveLabelScriptPath" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_AddLabelScriptPath" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_FollowUpPrompt" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_Prompt" Type="InArgument(x:String)" />
+    <x:Property Name="In_Db_Temperature" Type="InArgument(x:Double)" />
+    <x:Property Name="In_Bool_UseLocalPromptFiles" Type="InArgument(x:Boolean)" />
+    <x:Property Name="In_StrJSON_Model" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_LocalSolutionFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_ApplicationDetails" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Run_Authonomous_Robot.In_Str_LocalSolutionFolderPath>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:Run_Authonomous_Robot.In_Str_LocalSolutionFolderPath>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1038,10886</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Simple_HTML_Based_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>AiPath</x:String>
+      <x:String>UiPath.Activities.System.Collections</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Activities.System.Arrays</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>AiPath.Gemini</x:String>
+      <x:String>AiPath.Claude</x:String>
+      <x:String>AiPath.OpenAi</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>AiPath</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Run Authonomous Robot" sap:VirtualizedContainerService.HintSize="1048,10821" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="bool_initialRun" />
+      <Variable x:TypeArguments="x:String" Default="false" Name="str_goalAchieved" />
+      <Variable x:TypeArguments="x:String" Name="str_followUpPrompt" />
+      <Variable x:TypeArguments="x:String" Name="str_fullPrompt" />
+      <Variable x:TypeArguments="x:String" Name="str_prompt" />
+      <Variable x:TypeArguments="x:String" Default="[Nothing]" Name="str_simplifiedHTML" />
+      <Variable x:TypeArguments="x:String" Name="str_outputValue" />
+      <Variable x:TypeArguments="x:String" Name="str_usernameSelector" />
+      <Variable x:TypeArguments="x:String" Name="str_passwordSelector" />
+      <Variable x:TypeArguments="x:String" Name="str_loginSelector" />
+      <Variable x:TypeArguments="x:String" Name="str_value" />
+      <Variable x:TypeArguments="x:String" Name="str_stepText" />
+      <Variable x:TypeArguments="x:String" Name="str_credentials" />
+      <Variable x:TypeArguments="x:String" Name="str_url" />
+      <Variable x:TypeArguments="x:String" Name="str_selector" />
+      <Variable x:TypeArguments="x:String" Name="str_action" />
+      <Variable x:TypeArguments="njl:JObject" Name="jo_action" />
+      <Variable x:TypeArguments="x:String" Name="str_step" />
+      <Variable x:TypeArguments="x:String" Name="str_goal" />
+      <Variable x:TypeArguments="ac:Message" Name="msg_aiMessageClaude" />
+      <Variable x:TypeArguments="scg:List(ac:Message)" Default="[New List(of AiPath.Claude.Message)]" Name="list_messagesClaude" />
+      <Variable x:TypeArguments="x:String" Name="str_listOfUiElements" />
+      <Variable x:TypeArguments="x:String" Default="[Nothing]" Name="str_screenshotBase64" />
+      <Variable x:TypeArguments="x:String" Name="str_applicationDetails" />
+      <Variable x:TypeArguments="scg:List(ao:Message)" Default="[New List(of AiPath.OpenAi.Message)]" Name="list_messagesOpenAI" />
+      <Variable x:TypeArguments="ao:Message" Name="msg_aiMessageOpenAI" />
+      <Variable x:TypeArguments="ag:Content" Name="msg_aiMessageGemini" />
+      <Variable x:TypeArguments="scg:List(ag:Content)" Default="[New List(of AiPath.Gemini.Content)]" Name="list_messagesGemini" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String) From {{&quot;model&quot;, &quot;gpt-3.5-turbo-0125&quot;}, {&quot;serverAddress&quot;, &quot;https://api.openai.com/v1/chat/completions&quot;}, {&quot;APIKey&quot;,&quot;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&quot;}}]" Name="dic_model" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Select Model" sap:VirtualizedContainerService.HintSize="986,499" sap2010:WorkflowViewState.IdRef="Sequence_54">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String) From {{&quot;model&quot;, &quot;gemma2-9b-it&quot;}, {&quot;serverAddress&quot;, &quot;https://api.groq.com/openai/v1/chat/completions&quot;}, {&quot;APIKey&quot;,Groq_API_KEY}, {&quot;maxTokens&quot;, &quot;18000&quot;}}]" Name="dic_groqGemma2_9B" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String) From {&#xA;{&quot;model&quot;, &quot;gemini-1.5-pro-latest&quot;},&#xA;{&quot;serverAddress&quot;, &quot;https://generativelanguage.googleapis.com&quot;}, &#xA;{&quot;APIKey&quot;,Gemini_API_Key},&#xA;{&quot;maxTokens&quot;, &quot;8192&quot;}&#xA;}]" Name="dic_Gemini_1_5_Pro" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String) From {&#xA;{&quot;model&quot;, &quot;claude-3-sonnet-20240229&quot;},&#xA;{&quot;serverAddress&quot;, &quot;https://api.anthropic.com/v1/messages&quot;}, &#xA;{&quot;APIKey&quot;,Anthropic_API_Key},&#xA;{&quot;maxTokens&quot;, &quot;4000&quot;}&#xA;}]" Name="dic_Claude_3_Sonet" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String) From {&#xA;{&quot;model&quot;, &quot;gemini-1.5-flash-latest&quot;},&#xA;{&quot;serverAddress&quot;, &quot;https://generativelanguage.googleapis.com&quot;}, &#xA;{&quot;APIKey&quot;,Gemini_API_Key},&#xA;{&quot;maxTokens&quot;, &quot;8192&quot;}&#xA;}]" Name="dic_Gemini_1_5_Flash" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String) From {&#xA;&#x9;{&quot;model&quot;, &quot;claude-3-haiku-20240307&quot;},&#xA;&#x9;{&quot;serverAddress&quot;, &quot;https://api.anthropic.com/v1/messages&quot;}, &#xA;&#x9;{&quot;APIKey&quot;,Anthropic_API_Key},&#xA;&#x9;{&quot;maxTokens&quot;, &quot;4096&quot;}&#xA;}]" Name="dic_Claude_3_Haiku" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String) From {{&quot;model&quot;, &quot;gpt-4-turbo-2024-04-09&quot;}, {&quot;serverAddress&quot;, &quot;https://api.openai.com/v1/chat/completions&quot;}, {&quot;APIKey&quot;,OpenAI_API_Key}, {&quot;maxTokens&quot;, &quot;4096&quot;}}]" Name="dic_OpenAI_GPT4" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String) From {{&quot;model&quot;, &quot;sonar-small-chat&quot;}, {&quot;serverAddress&quot;, &quot;https://api.perplexity.ai/chat/completions&quot;}, {&quot;APIKey&quot;,Perplexity_API_Key}, {&quot;maxTokens&quot;, &quot;4096&quot;}}]" Name="dic_PerplexitySonarSmall" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String) From {&#xA;{&quot;model&quot;, &quot;llama3-8b-8192&quot;},&#xA;{&quot;serverAddress&quot;, &quot;https://api.groq.com/openai/v1/chat/completions&quot;},&#xA;{&quot;APIKey&quot;,Groq_API_KEY},&#xA;{&quot;maxTokens&quot;, &quot;4096&quot;}&#xA;}]" Name="dic_groqLLaMMa3_8B" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String) From {&#xA;{&quot;model&quot;, &quot;llama3-70b-8192&quot;},&#xA;{&quot;serverAddress&quot;, &quot;https://api.groq.com/openai/v1/chat/completions&quot;},&#xA;{&quot;APIKey&quot;,Groq_API_KEY},&#xA;{&quot;maxTokens&quot;, &quot;4096&quot;}&#xA;}]" Name="dic_groqLLaMMa3_70B" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String) From {{&quot;model&quot;, &quot;mixtral-8x7b-32768&quot;}, {&quot;serverAddress&quot;, &quot;https://api.groq.com/openai/v1/chat/completions&quot;}, {&quot;APIKey&quot;,Groq_API_KEY}, {&quot;maxTokens&quot;, &quot;18000&quot;}}]" Name="dic_groqMistral8x7b" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String) From {&#xA;{&quot;model&quot;, &quot;claude-3-5-sonnet-20240620&quot;},&#xA;{&quot;serverAddress&quot;, &quot;https://api.anthropic.com/v1/messages&quot;}, &#xA;{&quot;maxTokens&quot;, &quot;4000&quot;}, &#xA;{&quot;APIKey&quot;,Anthropic_API_Key}&#xA;}]" Name="dic_Claude_3_5_Sonet" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String) From {{&quot;model&quot;, &quot;llama-3-sonar-small-32k-chat&quot;}, {&quot;serverAddress&quot;, &quot;https://api.perplexity.ai/chat/completions&quot;}, {&quot;APIKey&quot;,Perplexity_API_Key}, {&quot;maxTokens&quot;, &quot;4096&quot;}}]" Name="dic_PerplexityLlama3_Sonar_Small" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String) From {{&quot;model&quot;, &quot;gpt-3.5-turbo-0125&quot;}, {&quot;serverAddress&quot;, &quot;https://api.openai.com/v1/chat/completions&quot;}, {&quot;APIKey&quot;,OpenAI_API_Key}, {&quot;maxTokens&quot;, &quot;500&quot;}}]" Name="dic_OpenAI_GPT3_5" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String) From {{&quot;model&quot;, &quot;gemma-7b-it&quot;}, {&quot;serverAddress&quot;, &quot;https://api.groq.com/openai/v1/chat/completions&quot;}, {&quot;APIKey&quot;,Groq_API_KEY}, {&quot;maxTokens&quot;, &quot;8192&quot;}}]" Name="dic_groqGemma7B" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String) From {{&quot;model&quot;, &quot;gpt-4o&quot;}, {&quot;serverAddress&quot;, &quot;https://api.openai.com/v1/chat/completions&quot;}, {&quot;APIKey&quot;,OpenAI_API_Key}, {&quot;maxTokens&quot;, &quot;4096&quot;}}]" Name="dic_OpenAI_GPT4o" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If Condition="[not IsNothing(In_StrJSON_Model)]" DisplayName="If - Model not defined as JSON Argument for this robot" sap:VirtualizedContainerService.HintSize="530,379" sap2010:WorkflowViewState.IdRef="If_10">
+        <If.Then>
+          <Sequence DisplayName="Model from the Argument" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_55">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="njl:JObject" Name="jo_modelDicionary" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[jo_modelDicionary]" JsonString="[In_StrJSON_Model]" />
+            <Assign DisplayName="Select Model" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_59">
+              <Assign.To>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dic_model]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[jo_modelDicionary.ToObject(Of Dictionary(Of String, String))]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else - Select Model from the one available as variable" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_56">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Select Model" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_60">
+              <Assign.To>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dic_model]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dic_Claude_3_Haiku]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <If sap2010:Annotation.AnnotationText="In_Str_LocalSolutionFolderPath Argument for Read Prompts allows to read the prompts from the /prompts folder" Condition="[In_Bool_UseLocalPromptFiles]" DisplayName="If - Use Local Prompts Files (else: Get prompts as provided in the input parameter)" sap:VirtualizedContainerService.HintSize="986,461" sap2010:WorkflowViewState.IdRef="If_9">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_57">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read Prompts Workflow.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Components\Read Prompts Workflow.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="In_Str_FollowUpPromptFilePath">[Path.Combine(In_Str_LocalSolutionFolderPath,"prompts\followUpPrompt.txt")]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_ApplicationDetails">[In_Str_ApplicationDetails]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_Prompt">[In_Str_Prompt]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_Goal">[In_Str_Goal]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_FollowUpPrompt">[In_Str_FollowUpPrompt]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="In_Str_GoalFIlePath">[Path.Combine(In_Str_LocalSolutionFolderPath,"prompts\goal.txt")]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="In_Str_ApplicationDetailsFilePath">[Path.Combine(In_Str_LocalSolutionFolderPath,"prompts\applications.txt")]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="In_Str_PromptFilePath">[Path.Combine(In_Str_LocalSolutionFolderPath,"prompts\prompt.txt")]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="In_Str_SolutionFolderPath">[In_Str_LocalSolutionFolderPath]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_58">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <TryCatch DisplayName="Try Catch - Do While - Process Execusion" sap:VirtualizedContainerService.HintSize="986,9773" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch.Try>
+        <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[str_goalAchieved.ToLower = &quot;false&quot;]" DisplayName="Do While - Process Execusion" sap:VirtualizedContainerService.HintSize="948,9522" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+          <ui:InterruptibleDoWhile.Body>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="914,9408" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[bool_initialRun]" DisplayName="If - Initial run" sap:VirtualizedContainerService.HintSize="852,3586" sap2010:WorkflowViewState.IdRef="If_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="559,606" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="497,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[bool_initialRun]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Sequence DisplayName="Create initial prompt" sap:VirtualizedContainerService.HintSize="497,225" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Default="[Nothing]" Name="str_goalPath" />
+                        <Variable x:TypeArguments="x:String" Name="str_applicationsPath" />
+                        <Variable x:TypeArguments="x:String" Name="str_promptPath" />
+                        <Variable x:TypeArguments="x:String" Name="str_followUpPromptPath" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Create initial prompt" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[str_fullPrompt]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[String.Format(In_Str_Prompt,{In_Str_Goal, In_Str_ApplicationDetails})]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                    <Switch x:TypeArguments="x:String" DisplayName="Set Initial Message - Choose AI Model to Query" Expression="[dic_Model(&quot;model&quot;).tolower.Split(&quot;-&quot;)(0)]" sap:VirtualizedContainerService.HintSize="497,179" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                      <Switch.Default>
+                        <Sequence DisplayName="Open AI Compatible" sap:VirtualizedContainerService.HintSize="558,766" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence DisplayName="Create initial message - OpenAI" sap:VirtualizedContainerService.HintSize="496,678" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - System Message" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_34">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="ao:Message">[msg_aiMessageOpenAI]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="ao:Message" xml:space="preserve">[New AiPath.OpenAi.Message("system", New List(Of AiPath.OpenAi.Content) From _
+{
+	New AiPath.OpenAi.TextContent(In_Str_SystemMessage)}
+)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <uasc:AppendItemToCollection x:TypeArguments="ao:Message" Collection="[list_messagesOpenAI]" DisplayName="Append System Message to Collection" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_5">
+                              <uasc:AppendItemToCollection.Items>
+                                <scg:List x:TypeArguments="InArgument(ao:Message)" Capacity="4">
+                                  <InArgument x:TypeArguments="ao:Message">[msg_aiMessageOpenAI]</InArgument>
+                                </scg:List>
+                              </uasc:AppendItemToCollection.Items>
+                            </uasc:AppendItemToCollection>
+                            <Assign DisplayName="Assign - New Message" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_30">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="ao:Message">[msg_aiMessageOpenAI]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="ao:Message" xml:space="preserve">[New AiPath.OpenAi.Message("user", New List(Of AiPath.OpenAi.Content) From _
+{
+	New AiPath.OpenAi.TextContent(str_fullPrompt)}
+)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <uasc:AppendItemToCollection x:TypeArguments="ao:Message" Collection="[list_messagesOpenAI]" DisplayName="Append Message to Collection" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_3">
+                              <uasc:AppendItemToCollection.Items>
+                                <scg:List x:TypeArguments="InArgument(ao:Message)" Capacity="4">
+                                  <InArgument x:TypeArguments="ao:Message">[msg_aiMessageOpenAI]</InArgument>
+                                </scg:List>
+                              </uasc:AppendItemToCollection.Items>
+                            </uasc:AppendItemToCollection>
+                          </Sequence>
+                        </Sequence>
+                      </Switch.Default>
+                      <Sequence x:Key="claude" DisplayName="Claude" sap:VirtualizedContainerService.HintSize="558,478" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence DisplayName="Create initial message - Claude" sap:VirtualizedContainerService.HintSize="496,390" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign DisplayName="Assign - New Message" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_3">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ac:Message">[msg_aiMessageClaude]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ac:Message" xml:space="preserve">[New AiPath.Claude.Message("user", New List(Of AiPath.Claude.ContentItem) From _ 
+	{
+		New AiPath.Claude.ContentItemText(str_fullPrompt)
+	}
+)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <uasc:AppendItemToCollection x:TypeArguments="ac:Message" Collection="[list_messagesClaude]" DisplayName="Append Message to Collection" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_1">
+                            <uasc:AppendItemToCollection.Items>
+                              <scg:List x:TypeArguments="InArgument(ac:Message)" Capacity="4">
+                                <InArgument x:TypeArguments="ac:Message">[msg_aiMessageClaude]</InArgument>
+                              </scg:List>
+                            </uasc:AppendItemToCollection.Items>
+                          </uasc:AppendItemToCollection>
+                        </Sequence>
+                      </Sequence>
+                      <Sequence x:Key="gemini" DisplayName="Gemini" sap:VirtualizedContainerService.HintSize="496,367" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Assign - New Message Object" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_50">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="ag:Content">[msg_aiMessageGemini]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="ag:Content" xml:space="preserve">[New AiPath.Gemini.Content("user", New List(Of AiPath.Gemini.Part) From _
+	{
+		New AiPath.Gemini.Part_Text(str_fullPrompt)
+	}
+)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <uasc:AppendItemToCollection x:TypeArguments="ag:Content" Collection="[list_messagesGemini]" DisplayName="Append Message to Collection" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_10">
+                          <uasc:AppendItemToCollection.Items>
+                            <scg:List x:TypeArguments="InArgument(ag:Content)" Capacity="4">
+                              <InArgument x:TypeArguments="ag:Content">[msg_aiMessageGemini]</InArgument>
+                            </scg:List>
+                          </uasc:AppendItemToCollection.Items>
+                        </uasc:AppendItemToCollection>
+                      </Sequence>
+                    </Switch>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="717,2810" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="str_simplifyScriptPath" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Simplify HTML" sap:VirtualizedContainerService.HintSize="655,370" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign - Simplify HTML Script Path" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_25">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[str_simplifyScriptPath]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[In_Str_SimplifyScriptPath]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetSimplifiedHTML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Components\Get Simplified HTML.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="In_Str_ScriptFilePath">[str_simplifyScriptPath]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_SimplifiedHTMLCode">[str_simplifiedHTML]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                    <If Condition="[In_bool_TakeScreenshot]" DisplayName="If - Take screenshot" sap:VirtualizedContainerService.HintSize="655,1346" sap2010:WorkflowViewState.IdRef="If_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="Take Screenshot" sap:VirtualizedContainerService.HintSize="592,1008" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="str_addLablesScriptPath" />
+                            <Variable x:TypeArguments="x:String" Name="str_removeLabelsScriptPath" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[In_bool_TakeScreenshotWithLabels]" DisplayName="If - Take Screenshot with Labels" sap:VirtualizedContainerService.HintSize="530,784" sap2010:WorkflowViewState.IdRef="If_5">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,307" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Assign - Lables Script Path" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[str_addLablesScriptPath]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[In_Str_AddLabelScriptPath]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign DisplayName="Assign - Remove Labels Script Path" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[str_RemoveLabelsScriptPath]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[In_Str_RemoveLabelScriptPath]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,307" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[str_addLablesScriptPath]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[str_RemoveLabelsScriptPath]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Components\Take Screenshot.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="530,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Components\Take Screenshot.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_ListOfUiElements">[str_listOfUiElements]</OutArgument>
+                              <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_ScreenshotBase64">[str_screenshotBase64]</OutArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="In_Str_AddLablesScriptPath">[str_addLablesScriptPath]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="In_Str_RemoveLabelsScriptPath">[str_removeLabelsScriptPath]</InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Comment DisplayName="Not taking the screenshot" sap:VirtualizedContainerService.HintSize="354,80" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Not taking the screenshot" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <Sequence DisplayName="Follow-up message" sap:VirtualizedContainerService.HintSize="655,823" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If Condition="[In_bool_TakeScreenshot]" sap:VirtualizedContainerService.HintSize="593,703" sap2010:WorkflowViewState.IdRef="If_6">
+                        <If.Then>
+                          <Sequence DisplayName="Then - With Screenshot" sap:VirtualizedContainerService.HintSize="559,271" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Switch x:TypeArguments="x:String" DisplayName="Switch - Choose AI Model" Expression="[dic_Model(&quot;model&quot;).tolower.Split(&quot;-&quot;)(0)]" sap:VirtualizedContainerService.HintSize="497,183" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                              <Switch.Default>
+                                <Sequence DisplayName="Open AI Compatible" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign DisplayName="Assign - New Message Object with Image" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_35">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="ao:Message">[msg_aiMessageOpenAI]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="ao:Message" xml:space="preserve">[New AiPath.OpenAi.Message("user", New List(Of AiPath.OpenAi.Content) From _
+	{
+		New AiPath.OpenAi.TextContent(String.Format(In_Str_FollowUpPrompt, str_simplifiedHTML)),
+		New AiPath.OpenAi.ImageUrlContent(New AiPath.OpenAi.ImageUrl(str_screenshotBase64))
+	}
+)]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </Switch.Default>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence x:Key="claude" DisplayName="Claude" sap:VirtualizedContainerService.HintSize="496,191" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Assign - New Message Object with Image" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_36">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="ac:Message">[msg_aiMessageClaude]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="ac:Message" xml:space="preserve">[New AiPath.Claude.Message("user", New List(Of AiPath.Claude.ContentItem) From _
+	{
+		New AiPath.Claude.ContentItemText(String.Format(In_Str_FollowUpPrompt, {str_simplifiedHTML})),
+		New AiPath.Claude.ContentItemImage(New AiPath.Claude.ImageSource(str_screenshotBase64))
+	}
+)]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                              <Assign x:Key="gemini" DisplayName="Assign - New Message Object with Image" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="Assign_49">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="ag:Content">[msg_aiMessageGemini]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="ag:Content" xml:space="preserve">[New AiPath.Gemini.Content("user", New List(Of AiPath.Gemini.Part) From _
+	{
+		New AiPath.Gemini.Part_Text(String.Format(In_Str_FollowUpPrompt, {str_simplifiedHTML})),
+		New AiPath.Gemini.Part_InLineData(New AiPath.Gemini.InlineData(str_screenshotBase64))
+	}
+)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Switch>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else -Without Screenshot" sap:VirtualizedContainerService.HintSize="559,271" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Switch x:TypeArguments="x:String" DisplayName="Switch - Choose AI Model" Expression="[dic_Model(&quot;model&quot;).tolower.Split(&quot;-&quot;)(0)]" sap:VirtualizedContainerService.HintSize="497,183" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+                              <Switch.Default>
+                                <Sequence DisplayName="Open AI Compatible" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign DisplayName="Assign - New Message Object with Image" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="ao:Message">[msg_aiMessageOpenAI]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="ao:Message" xml:space="preserve">[New AiPath.OpenAi.Message("user", New List(Of AiPath.OpenAi.Content) From _
+	{
+		New AiPath.OpenAi.TextContent(String.Format(In_Str_FollowUpPrompt, str_simplifiedHTML))
+	}
+)]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </Switch.Default>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence x:Key="claude" DisplayName="Claude" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Assign - New Message Object" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_38">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="ac:Message">[msg_aiMessageClaude]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="ac:Message" xml:space="preserve">[New AiPath.Claude.Message("user", New List(Of AiPath.Claude.ContentItem) From _
+	{
+		New AiPath.Claude.ContentItemText(String.Format(In_Str_FollowUpPrompt, {str_simplifiedHTML}))
+	}
+)]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                              <Sequence x:Key="gemini" DisplayName="Gemini" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Assign - New Message Object" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_51">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="ag:Content">[msg_aiMessageGemini]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="ag:Content" xml:space="preserve">[New AiPath.Gemini.Content("user", New List(Of AiPath.Gemini.Part) From _
+	{
+		New AiPath.Gemini.Part_Text(String.Format(In_Str_FollowUpPrompt, {str_simplifiedHTML}))
+	}
+)]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </Switch>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                    <Switch x:TypeArguments="x:String" DisplayName="Add FollowUp Message - Choose AI Model" Expression="[dic_Model(&quot;model&quot;).tolower.Split(&quot;-&quot;)(0)]" sap:VirtualizedContainerService.HintSize="655,183" sap2010:WorkflowViewState.IdRef="Switch`1_6">
+                      <Switch.Default>
+                        <Sequence DisplayName="Open AI Compatible" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uasc:AppendItemToCollection x:TypeArguments="ao:Message" Collection="[list_messagesOpenAI]" DisplayName="Add follow-up message to the list" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_7">
+                            <uasc:AppendItemToCollection.Items>
+                              <scg:List x:TypeArguments="InArgument(ao:Message)" Capacity="4">
+                                <InArgument x:TypeArguments="ao:Message">[msg_aiMessageOpenAI]</InArgument>
+                              </scg:List>
+                            </uasc:AppendItemToCollection.Items>
+                          </uasc:AppendItemToCollection>
+                        </Sequence>
+                      </Switch.Default>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence x:Key="claude" DisplayName="Claude" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uasc:AppendItemToCollection x:TypeArguments="ac:Message" Collection="[list_messagesClaude]" DisplayName="Add follow-up message to the list" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_6">
+                          <uasc:AppendItemToCollection.Items>
+                            <scg:List x:TypeArguments="InArgument(ac:Message)" Capacity="4">
+                              <InArgument x:TypeArguments="ac:Message">[msg_aiMessageClaude]</InArgument>
+                            </scg:List>
+                          </uasc:AppendItemToCollection.Items>
+                        </uasc:AppendItemToCollection>
+                      </Sequence>
+                      <Sequence x:Key="gemini" DisplayName="Gemini" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uasc:AppendItemToCollection x:TypeArguments="ag:Content" Collection="[list_messagesGemini]" DisplayName="Add follow-up message to the list" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_8">
+                          <uasc:AppendItemToCollection.Items>
+                            <scg:List x:TypeArguments="InArgument(ag:Content)" Capacity="4">
+                              <InArgument x:TypeArguments="ag:Content">[msg_aiMessageGemini]</InArgument>
+                            </scg:List>
+                          </uasc:AppendItemToCollection.Items>
+                        </uasc:AppendItemToCollection>
+                      </Sequence>
+                    </Switch>
+                  </Sequence>
+                </If.Else>
+              </If>
+              <Switch x:TypeArguments="x:String" DisplayName="Send Query to AI Model - Choose AI Model to Query" Expression="[dic_Model(&quot;model&quot;).tolower.Split(&quot;-&quot;)(0)]" sap:VirtualizedContainerService.HintSize="852,192" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                <Switch.Default>
+                  <Sequence DisplayName="Open AI Compatible" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Components\SendQueryToOpenAI.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Components\SendQueryToOpenAI.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:Double" x:Key="In_Db_Temperature">[In_Db_Temperature]</InArgument>
+                        <InArgument x:TypeArguments="x:Int32" x:Key="In_Int_MaxTokens">[Cint(dic_Model("maxTokens").ToString)]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="In_Str_AIServerAddress">[dic_Model("serverAddress").ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="In_Str_APIKey">[dic_Model("APIKey").ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="In_Str_Model">[dic_Model("model").ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="In_Str_SystemPrompt">[In_Str_SystemMessage]</InArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_GeneratedContent">[str_step]</OutArgument>
+                        <InOutArgument x:TypeArguments="scg:List(ao:Message)" x:Key="InOut_List_Messages">[list_messagesOpenAI]</InOutArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                </Switch.Default>
+                <Sequence x:Key="claude" DisplayName="Claude" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Components\SendQueryToAnthropicClaude.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Components\SendQueryToAnthropicClaude.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:Double" x:Key="In_Db_Temperature">[In_Db_Temperature]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_APIKey">[dic_Model("APIKey").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_Model">[dic_Model("model").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_AIServerAddress">[dic_Model("serverAddress").ToString]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_GeneratedContent">[str_step]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_Prompt">Hello there!</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_SystemPrompt">[In_Str_SystemMessage]</InArgument>
+                      <InOutArgument x:TypeArguments="scg:List(ac:Message)" x:Key="InOut_List_Messages">[list_messagesClaude]</InOutArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="In_Int_MaxTokens">[Cint(dic_Model("maxTokens").ToString)]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </Sequence>
+                <Sequence x:Key="gemini" DisplayName="Gemini" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Components\SendQueryToGemini.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Components\SendQueryToGemini.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_SystemPrompt">[In_Str_SystemMessage]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_AIServerAddress">[dic_Model("serverAddress").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_Model">[dic_Model("model").ToString]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_GeneratedContent">[str_step]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_Prompt" xml:space="preserve">Hello there! Explain what UiPath is? </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_APIKey">[dic_Model("APIKey").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:Double" x:Key="In_Db_Temperature">[In_Db_Temperature]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_QueryType">generateContent</InArgument>
+                      <InOutArgument x:TypeArguments="scg:List(ag:Content)" x:Key="InOut_List_Messages">[list_messagesGemini]</InOutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </Sequence>
+              </Switch>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="852,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[str_step]" />
+              <Sequence sap2010:Annotation.AnnotationText="Empty by default. Here a logic can be added to  clear the  AI response ex.: remove &lt;scratchpad/&gt;&#xA;" DisplayName="Process Step" sap:VirtualizedContainerService.HintSize="852,683" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign - Remove sketchpad" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_56">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_step]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Regex.Replace(str_step, "&lt;scratchpad&gt;[\s\S]*?&lt;/scratchpad&gt;", String.Empty).Trim]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Remove sketchpad" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_61">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_step]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Regex.Replace(str_step, "&lt;SCRATCHPAD&gt;[\s\S]*?&lt;/SCRATCHPAD&gt;", String.Empty).Trim]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Remove '''JSON markups" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_58">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_step]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[If(str_step.StartsWith("```json"), str_step.Replace("```json",String.Empty).Replace("```", String.Empty),str_step)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message Response AI" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Cleared response from AI: &quot; + vbCr + str_step]" />
+              </Sequence>
+              <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="852,122" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jo_action]" JsonString="[str_step]" />
+              <If Condition="[isNothing(jo_action(&quot;action&quot;))]" DisplayName="If - Action" sap:VirtualizedContainerService.HintSize="852,564" sap2010:WorkflowViewState.IdRef="If_2">
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,201" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Throw Exception="[New System.Exception(&quot;Action property always needs to be provided&quot;)]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Assign - Selector" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[str_action]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[jo_action("action").ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Else>
+              </If>
+              <Sequence DisplayName="Assign Values" sap:VirtualizedContainerService.HintSize="852,1251" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign - Goal Achived" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_goalAchieved]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("goal_achieved")),"false",jo_action("goal_achieved").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Step Text" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_stepText]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("step")),string.Empty,jo_action("step").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Value" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_8">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_value]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("value")),string.Empty,jo_action("value").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Selector" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_9">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_selector]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("selector")),string.Empty,jo_action("selector").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - URL" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_10">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_url]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("URL")),string.Empty,jo_action("URL").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Selector" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_11">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_selector]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("selector")),string.Empty,jo_action("selector").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Credentials" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_12">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_credentials]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("credentials")),string.Empty,jo_action("credentials").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Username Selector" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_13">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_usernameSelector]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("username_selector")),string.Empty,jo_action("username_selector").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Password Selector" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_14">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_passwordSelector]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("password_selector")),string.Empty,jo_action("password_selector").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign - Login Selector" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_15">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_loginSelector]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[if(isNothing(jo_action("login_selector")),string.Empty,jo_action("login_selector").ToString)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="852,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Taking actions with the following attributes: &quot; &amp; Environment.NewLine &amp; &#xA;&quot;  step: &quot; &amp; str_stepText &amp; Environment.NewLine &amp; &#xA;&quot;  action: &quot; &amp; str_action &amp; Environment.NewLine &amp; &#xA;If(String.IsNullOrEmpty(str_url), String.Empty, &quot;  value: &quot; &amp; str_url &amp; Environment.NewLine) &amp;&#xA;If(String.IsNullOrEmpty(str_value), String.Empty, &quot;  value: &quot; &amp; str_value &amp; Environment.NewLine) &amp;&#xA;If(String.IsNullOrEmpty(str_credentials), String.Empty, &quot;  credentials: &quot; &amp; str_credentials &amp; Environment.NewLine) &amp;&#xA;If(String.IsNullOrEmpty(str_usernameSelector), String.Empty, &quot;  username_selector: &quot; &amp; str_usernameSelector &amp; Environment.NewLine) &amp;&#xA;If(String.IsNullOrEmpty(str_passwordSelector), String.Empty, &quot;  password_selector: &quot; &amp; str_passwordSelector &amp; Environment.NewLine) &amp;&#xA;If(String.IsNullOrEmpty(str_loginSelector), String.Empty, &quot;  login_selector: &quot; &amp; str_loginSelector &amp; Environment.NewLine) &amp;&#xA;If(String.IsNullOrEmpty(str_goalAchieved), String.Empty, &quot;  Goal Achieved? : &quot; &amp; str_goalAchieved &amp; Environment.NewLine)]" />
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="852,373" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch.Try>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExecuteStep.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Components\ExecuteStep.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_Action">[str_action]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_Selector">[str_selector]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_URL">[str_url]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_Credentials">[str_credentials]</InArgument>
+                      <InArgument x:TypeArguments="s:String[]" x:Key="In_Arr_Str_EnterCredetials">[{str_credentials,str_usernameSelector,str_passwordSelector,str_loginSelector}]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_Value">[str_value]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="Out_Str_Value">[str_outputValue]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_Str_DownloadedFiles">C:\UiPath\AiPath Autonomous Robot\Downloaded Files\</InArgument>
+                      <InArgument x:TypeArguments="x:Boolean" x:Key="In_Bool_GetFromScreenshot">True</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Exception" sap:VirtualizedContainerService.HintSize="512,840" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Int32" Default="0" Name="int_errorCounter" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[exception.Message]" />
+                        <Assign DisplayName="Assign - Use Error FollowUp Message" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_57">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[int_errorCounter]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[int_errorCounter+1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If Condition="[int_errorCounter &gt; 5]" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="If_8">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,201" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw DisplayName="Throw - System Exception" Exception="[New SystemException(&quot;There where errors while processing your request. The authonomous robot will be stoped.&quot;)]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <Sequence DisplayName="Edit Conversation" sap:VirtualizedContainerService.HintSize="852,2203" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[not bool_initialRun]" sap:VirtualizedContainerService.HintSize="726,1987" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Sequence DisplayName="Edit Conversation" sap:VirtualizedContainerService.HintSize="692,1714" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="630,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Editing Conversatio by Removing unnecessary HTML and Images. Adding obtained value&quot;]" />
+                      <Switch x:TypeArguments="x:String" DisplayName="Switch - Choose AI Model" Expression="[dic_Model(&quot;model&quot;).tolower.Split(&quot;-&quot;)(0)]" sap:VirtualizedContainerService.HintSize="630,1453" sap2010:WorkflowViewState.IdRef="Switch`1_5">
+                        <Switch.Default>
+                          <Sequence DisplayName="Open AI Compatible" sap:VirtualizedContainerService.HintSize="592,1226" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If Condition="[String.IsNullOrEmpty(str_outputValue)]" DisplayName="If - Adding output value to the conversation" sap:VirtualizedContainerService.HintSize="530,580" sap2010:WorkflowViewState.IdRef="If_12">
+                              <If.Then>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,307" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign DisplayName="Assign - Adding output value to the conversation" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_67">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[TryCast(list_messagesOpenAI(list_messagesOpenAI.Count-1).content(0), AiPath.OpenAi.TextContent).text]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[TryCast(list_messagesOpenAI(list_messagesOpenAI.Count-1).content(0), AiPath.OpenAi.TextContent).text.Replace("}", ",""obtainedValue"":"""+ str_outputValue + """}")]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_68">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_outputValue]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                            <Sequence DisplayName="Remove unnecessary HTML OpenAI" sap:VirtualizedContainerService.HintSize="530,558" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="ao:TextContent" Name="con_toReplaceOpenAI" />
+                                <Variable x:TypeArguments="x:String" Name="con_imageToRemoveOpenAI" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign - Get Content Item" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_46">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="ao:TextContent">[con_toReplaceOpenAI]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="ao:TextContent">[TryCast(list_messagesOpenAI(list_messagesOpenAI.Count-2).content(0), AiPath.OpenAi.TextContent)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="Assign - Remove HTML" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_47">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[con_toReplaceOpenAI.text]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(con_toReplaceOpenAI.text, "&lt;HTML&gt;[\s\S]*?&lt;/HTML&gt;", "")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="Assign - Remove GUIDELINES" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_64">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[con_toReplaceOpenAI.text]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(con_toReplaceOpenAI.text, "&lt;GUIDELINES&gt;[\s\S]*?&lt;/GUIDELINES&gt;", "")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="Assign - Replace Item" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_48">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="scg:List(ao:Content)">[list_messagesOpenAI(list_messagesOpenAI.Count-2).content]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="scg:List(ao:Content)">[New List(Of OpenAi.Content) from {New AiPath.OpenAi.TextContent(con_toReplaceOpenAI.text)}]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </Sequence>
+                        </Switch.Default>
+                        <Sequence x:Key="claude" DisplayName="Claude" sap:VirtualizedContainerService.HintSize="654,1226" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence DisplayName="Claude" sap:VirtualizedContainerService.HintSize="592,772" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="con_imageToRemove" />
+                              <Variable x:TypeArguments="ac:ContentItemText" Name="con_toReplace" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If Condition="[String.IsNullOrEmpty(str_outputValue)]" DisplayName="If - Adding output value to the conversation" sap:VirtualizedContainerService.HintSize="530,214" sap2010:WorkflowViewState.IdRef="If_11">
+                              <If.Then>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,307" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign DisplayName="Assign - Adding output value to the conversation" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_65">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[TryCast(list_messagesClaude(list_messagesClaude.Count-1).content(0), AiPath.Claude.ContentItemText).text]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[TryCast(list_messagesClaude(list_messagesClaude.Count-1).content(0), AiPath.Claude.ContentItemText).text.Replace("}", ",""obtainedValue"":"""+ str_outputValue + """}")]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_66">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_outputValue]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                            <Assign DisplayName="Assign - Get Content Item" sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_16">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="ac:ContentItemText">[con_toReplace]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="ac:ContentItemText">[TryCast(list_messagesClaude(list_messagesClaude.Count-2).content(0), AiPath.Claude.ContentItemText)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="Assign - Remove HTML" sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_17">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[con_toReplace.text]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(con_toReplace.text, "&lt;HTML&gt;[\s\S]*?&lt;/HTML&gt;", "")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="Assign - Remove GUIDELINES" sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_62">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[con_toReplace.text]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(con_toReplace.text, "&lt;GUIDELINES&gt;[\s\S]*?&lt;/GUIDELINES&gt;", "")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="Assign - Replace Item" sap:VirtualizedContainerService.HintSize="530,105" sap2010:WorkflowViewState.IdRef="Assign_18">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="scg:List(ac:ContentItem)">[list_messagesClaude(list_messagesClaude.Count-2).content]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="scg:List(ac:ContentItem)">[New List(Of Claude.ContentItem) from {New AiPath.Claude.ContentItemText(con_toReplace.text)}]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </Sequence>
+                        <Sequence x:Key="gemini" DisplayName="Gemini" sap:VirtualizedContainerService.HintSize="592,628" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="con_imageToRemove" />
+                            <Variable x:TypeArguments="ag:Content" Name="con_toReplace" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[String.IsNullOrEmpty(str_outputValue)]" DisplayName="If - Adding output value to the conversation" sap:VirtualizedContainerService.HintSize="530,214" sap2010:WorkflowViewState.IdRef="If_13">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,307" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Assign - Adding output value to the conversation" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_69">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[TryCast(list_messagesGemini(list_messagesGemini.Count-1).parts(0), aipath.Gemini.Part_Text).text]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[TryCast(list_messagesGemini(list_messagesGemini.Count-1).parts(0), aipath.Gemini.Part_Text).text.Replace("}", ",""obtainedValue"":"""+ str_outputValue + """}")]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_70">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[str_outputValue]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <Assign DisplayName="Assign - Get Content Item" sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_52">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ag:Content">[con_toReplace]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ag:Content">[list_messagesGemini(list_messagesGemini.Count-2)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign DisplayName="Assign - Remove HTML" sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_53">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[TryCast(con_toReplace.parts(0), AiPath.Gemini.Part_Text).text]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(TryCast(con_toReplace.parts(0), AiPath.Gemini.Part_Text).text, "&lt;HTML&gt;[\s\S]*?&lt;/HTML&gt;", "")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign DisplayName="Assign - Remove GUIDELINES" sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_63">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[TryCast(con_toReplace.parts(0), AiPath.Gemini.Part_Text).text]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(TryCast(con_toReplace.parts(0), AiPath.Gemini.Part_Text).text, "&lt;GUIDELINES&gt;[\s\S]*?&lt;/GUIDELINES&gt;", "")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign DisplayName="Assign - Replace Item" sap:VirtualizedContainerService.HintSize="530,105" sap2010:WorkflowViewState.IdRef="Assign_54">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ag:Content">[list_messagesGemini(list_messagesGemini.Count-2)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ag:Content">[New AiPAth.Gemini.Content(con_toReplace.role, New List(of Gemini.Part) from {New AiPath.Gemini.Part_Text(TryCast(con_toReplace.parts(0), AiPath.Gemini.Part_Text).text)})]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </Switch>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <Assign DisplayName="Assign - Init Run" sap:VirtualizedContainerService.HintSize="726,105" sap2010:WorkflowViewState.IdRef="Assign_19">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[bool_initialRun]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </Sequence>
+          </ui:InterruptibleDoWhile.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:InterruptibleDoWhile>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="952,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message - Error" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Error encountered: &quot; + exception.Message]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Write Conversation File" sap:VirtualizedContainerService.HintSize="559,563" sap2010:WorkflowViewState.IdRef="Sequence_62">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Switch x:TypeArguments="x:String" DisplayName="Set Initial Message - Choose AI Model to Query" Expression="[dic_Model(&quot;model&quot;).tolower.Split(&quot;-&quot;)(0)]" sap:VirtualizedContainerService.HintSize="497,475" sap2010:WorkflowViewState.IdRef="Switch`1_7">
+            <Switch.Default>
+              <Sequence DisplayName="Open AI Compatible" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="conversationWithAI_log.json" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="WriteTextFile_5" Text="[JsonConvert.SerializeObject(list_messagesOpenAI)]" />
+              </Sequence>
+            </Switch.Default>
+            <Sequence x:Key="claude" DisplayName="Claude" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_59">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="conversationWithAI_log.json" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[JsonConvert.SerializeObject(list_messagesClaude)]" />
+            </Sequence>
+            <Sequence x:Key="gemini" DisplayName="Gemini" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_60">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="conversationWithAI_log.json" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="WriteTextFile_4" Text="[JsonConvert.SerializeObject(list_messagesGemini)]" />
+            </Sequence>
+          </Switch>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>

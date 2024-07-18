@@ -1,0 +1,9 @@
+﻿Create new customer in RPA Credit Bank Application system
+First Name: Chris,
+Surname: Kara
+Email: chris@test.com
+Birth Date:  12/09/1985
+Go to Address and fill:
+Street: St. Main 123
+Zip-Code: 32-789
+City: Warsaw

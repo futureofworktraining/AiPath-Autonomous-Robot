@@ -1,0 +1,177 @@
+﻿Search for a ticket in RPA Bank Application from: Cullen36@gmail.com, open it and get Email content
+
+Export list of credit products from RPA Credit Bank app
+
+Go to ACME system, open work items and get the first one of a type WI5 get Work Item Details
+
+Go to ACME system,and find vendor with tax id: IT213456
+
+Request a loan with the following details. Click on 'Product' navigation menu then 'Loans'. Then applu for loan and fill the web form.
+Email Address of Requester: Chris.kara@automation.com
+Loan Amount Requested: 50000
+Loan Term: 5 (from the dropdown options)
+Current Yearly Income (Before Taxes): 75000
+Age: 35
+Click the Submit Loan Application
+Get the APR value and loan ID 
+
+Create new customer
+
+Open RPA Credit Bank application
+Click Customers
+Click Customers under Cutomers option
+Click 'Create' button
+Fill - First Name: Chris,
+Fill - Surname: Kara
+Fill - Email: chris@test.com
+Fill - Birth Date:  12/09/1985
+Click Address tab
+Enter 
+Street: St. Main 123
+Zip-Code: 32-789
+City: Warsaw
+Click Save
+Continue the process
+Go to Stats tab
+From a Segment drop-down select Collector
+Change Has newsletter to Yes
+Click Save
+
+- SONET ONLY -
+Create new customer in RPA Credit Bank Application system
+First Name: Chris,
+Surname: Kara
+Email: chris@test.com
+Birth Date:  12/09/1985
+Go to Address and fill:
+Street: St. Main 123
+Zip-Code: 32-789
+City: Warsaw
+
+Create new customer
+
+Fill the web form on the RPA Challenge web site wit the details below. Do not click "Download" button!
+Chris, Kara, chri.ka@example.com, 123 Main Street, 123-456-7890, Software Engineer, Acme Inc.
+
+Go to ACME system,and find vendor with tax id: IT213456
+
+Get all required documents for Product ID: 129
+Set the filter to Is Required? to Yes
+
+Fill the web form on the RPA Challenge web site. Do not download the file just fill the web form.
+
+Go to Credit Details -> Approved Requests and get all records Passed Since 01/01/2019
+
+Request a loan with the following details. Click on 'Product' navigation menu then 'Loans'. Then applu for loan and fill the web form.
+Email Address of Requester: Chris.kara@automation.com
+Loan Amount Requested: 50000
+Loan Term: 5 (from the dropdown options)
+Current Yearly Income (Before Taxes): 75000
+Age: 35
+Click the Submit Loan Application
+Get the APR value and loan ID 
+
+In RPA Credit Bank aplication
+Go to Product
+Click Credits
+Click Create 
+Type: https://marmelab.com/posters/business-5.jpeg into Image
+Type: https://marmelab.com/posters/business-5.jpeg into Thumbnail
+Click Details
+Type "Super Car Credit" to Reference
+Put 20 to EIR
+Put 100 to Annualfee
+Put 10 to Variable APR
+Select "car loan"
+Put 13 to Stock
+Click Save
+
+Create new customer
+
+Open RPA Credit Bank application
+Click Customers
+Click Customers under Cutomers option
+Click 'Create' button
+Type into First Name text box
+Type into Last Name text box
+Type into Email text box
+Type Birth of Date value with a format dd/mm/yyyy
+Click Address tab
+Enter address
+Enter Zipcode
+Enter City
+Click Save
+Continue the process
+Go to Stats tab
+From a Segment drop-down select Collector
+Change Has newsletter to Yes
+Click Save
+
+Go to the new ticketing system and submitt the tikcet. 
+Name: Chris
+Surname: Kara
+Country: UK
+email: chris.kara@test.com
+Ticket: "System is not working." 
+Click Submit
+Get the ticket ID
+Then continue and go to RPA Credit Bank Application
+Open tickets 
+Type the ticket value to the search box.
+
+Get all required documents for Product ID: 129
+Click 'Add Filter'
+Click 'Is Required?' menu option.
+Click 'Is Required?' drop-down list in the middle
+Click 'Yes' option
+
+Open Credit Bank application and create new customer using details below:
+Fisrt Name: Chris,
+Surname: Kara
+Email: chris@test.com
+Birth Date:  12/09/1985
+Address:
+Street: St. Main 123
+Zip-Code: 32-789
+City: Warsaw,
+Then click "Save"
+Click Stats 
+Set Segments to "Regular"
+Click Stats 
+And set Newsletter to "Yes"
+Save Changes
+
+Get all required documents for Product ID: 129
+Open RPA Credit Bank App
+Go to Documents
+Type 129 in the Search filed.
+Click 'Add Filter'
+Click 'Is Required?' menu option.
+Click 'Is Required?' drop-down list in the middle
+Click 'Yes' option
+Read the list of required documents.
+
+Go to the old ticketing system and submitt the tikcet. 
+Name: Chris
+Surname: Kara
+Country: UK
+email: chris.kara@test.com
+Ticket: "System is not working." 
+Click Submit
+Get the ticket ID
+Then continue and go to RPA Credit Bank Application
+Open tickets 
+Type the ticket ID to the Search input.
+
+In RPA Credit Bank aplication
+Create new credit product using following details
+Image: https://marmelab.com/posters/business-5.jpeg  
+Thumbnail: https://marmelab.com/posters/business-5.jpeg  
+Go to Details section
+Reference: "Super Car Credit" 
+EIR 20 
+Annual fee 100
+Variable APR 10
+Select "car loan"
+Stock: 13
+Save the product

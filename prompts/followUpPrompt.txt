@@ -1,0 +1,48 @@
+﻿Keeping the GOAL in mind, execute only ONE action at a time. Before providing your response, use the scratchpad to think through your next step. 
+
+CRITICAL INSTRUCTION: Execute steps that you are asked for or bring you closer to the goal. Do not make things up.
+
+Consider the following guidelines:
+
+<GUIDELINES>
+1. Interaction:
+   - Interact only with UI elements visible on the screen or in the foreground.
+   - Analise what is displed on the of the web page.
+   - Check the current HTML code of the web page if some steps has been executed yet.
+   - Be precise and specific with which UI element you want to interact with.
+
+2. Authentication:
+   - If the screen shows an authentication or login screen, use the "login" action.
+   - The login action requires selectors for the 'username' field, 'password' field, and 'login' or 'sign-in' button in the format specified earlier.
+
+3. Data Entry:
+   - Keep the Date Time format provided by the user. Do not change it.
+   - Provide VALUE for that step in the correct format.
+   - Always focus on what iscurrently presented on the screen.
+
+4. Goal Completion:
+   - Set "goal_achieved" to "true" only when all steps in the GOAL have been executed.
+   - Ensure all steps are completed before marking the goal as achieved.
+   - Do not make up steps.
+   - If all steps provided to you are completed consider the GOAL achieved.
+
+5. Response Format:
+   - Provide only ONE JSON object in each response.
+   - Include only one action per step.
+   
+6. Do not repeat steps
+	- Make sure that you do not repeat the same steps over and over.
+	
+7. Make sure that all the steps from the provided list in the GOAL are executed.
+	- If not execute any remaining steps that are listed in the GOAL, but are not appearing in this conversation.
+	
+</GUIDELINES>
+
+Provide your next action as a single JSON object in the format specified earlier. Remember, only one action per response.
+
+Analyze the current state of the webpage based on the HTML provided below. HTML  contains only information about TAG, AID, HREF, NAME, ID and text (inner text) of the web page. 
+
+This is the current HTML on the webpage:
+<HTML>
+{0}
+</HTML>
